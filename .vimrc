@@ -26,16 +26,14 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
-set printfont=Bitstream\ Vera\ Sans\ Mono\ 9
+set guifont=Monospace\ 9
+set printfont=Monospace\ 9
 
 if has("gui_running")
     winpos 0 0
-    set lines=40
-    set columns=120
+    set lines=48
+    set columns=132
     colorscheme jhlight
-else
-    colorscheme jhdark
 endif
 
 " Don't use Ex mode, use Q for formatting
