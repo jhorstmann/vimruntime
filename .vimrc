@@ -52,6 +52,8 @@ set nobackup
 set nowrap
 set isf-==
 
+set keywordprg=
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
