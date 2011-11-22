@@ -128,10 +128,6 @@ if has("autocmd")
 
   autocmd FileType c,cs,cpp,java,javascript,php,vala inoremap <buffer> { {<CR>}<C-O>O
   autocmd FileType python,tex,bib,antlr,jsp,ant inoremap <buffer> { {}<LEFT>
-  autocmd FileType tex inoremap <buffer> " „“<LEFT>
-  autocmd FileType tex inoremap <buffer> ' ‚‘<LEFT>
-  "autocmd FileType tex inoremap <buffer> ,, „“<LEFT>
-  "autocmd FileType tex inoremap <buffer> '' ‚‘<LEFT>
 
   autocmd FileType c,cs,cpp,java,jsp,javascript,php,python,text,html,xml,xslt,antlr,ant,scheme inoremap <buffer> [ []<LEFT>
   autocmd FileType c,cs,cpp,java,jsp,javascript,php,python,text,html,xml,xslt,antlr,ant,scheme inoremap <buffer> ( ()<LEFT>
@@ -363,3 +359,13 @@ nnoremap <C-J> :call JHJump()<CR>
 
 highlight JHJumpPoint guibg=#77aa77 ctermbg=darkgreen
 match JHJumpPoint /«--.\{-,100}--»/
+
+inoremap <buffer> <M-8> „
+inoremap <buffer> <M-9> “
+inoremap <buffer> <M-7> ‚
+inoremap <buffer> <M-0> ‘
+
+inoremap <buffer> <M-(> “
+inoremap <buffer> <M-)> ”
+inoremap <buffer> <M-/> ‘
+inoremap <buffer> <M-=> ’
