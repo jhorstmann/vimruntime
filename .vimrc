@@ -73,16 +73,6 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.jws setf java
   autocmd BufNewFile,BufRead *.wsdd setf xml
 
-  "autocmd FileType bib nnoremap ~ gUli{<RIGHT>}<LEFT><ESC>
-
-  "autocmd GUIEnter * simalt ~x
-  autocmd FileType php setlocal smartindent
-  "autocmd FileType php setlocal cindent
-  "autocmd FileType php setlocal cinwords+=foreach,elseif
-  autocmd FileType php compiler php
-  "autocmd FileType php setlocal makeprg=php-cli\ -n\ -l\ -f\ %
-  "autocmd FileType java setlocal makeprg=javac\ %
-  "autocmd FileType java setlocal errorformat=%f:%l:%v:%*\\d:%*\\d:%*\\s%m
   autocmd FileType java compiler javac
   autocmd FileType xml,xslt compiler xmlstarlet
 
@@ -95,9 +85,6 @@ if has("autocmd")
 
   autocmd FileType xml,xsd,xslt,xhtml,html,php,jsp,ant source /home/jh/.vim/closetag.vim
 
-  " autocmd FileType xml,xsd,xslt,xhtml,html,php inoremap <buffer> <M-.> <<ESC>T<yiwf<a/<CR><C-R>"><C-O>O
-  " autocmd FileType xml,xsd,xslt,xhtml,html,php inoremap <buffer> <M-,> <<ESC>T<yiwf<a/<C-R>"><ESC>F<i
-
   " mappings for html entities 
   autocmd FileType xml,xsd,xslt,xhtml,html,php,aspvbs,jsp,ant inoremap <buffer> <M-Space> &nbsp;
   autocmd FileType xml,xsd,xslt,xhtml,html,php,aspvbs,jsp,ant inoremap <buffer> <M-/> &#x201E;&#x201C;<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
@@ -107,24 +94,11 @@ if has("autocmd")
   autocmd FileType xml,xsd,xslt,xhtml,html,php,aspvbs,jsp,ant inoremap <buffer> <M-'> &apos;
   autocmd FileType xml,xsd,xslt,xhtml,html,php,aspvbs,jsp,ant inoremap <buffer> <M-"> &quot;
   
-  "autocmd FileType xml,xsd,xslt,xhtml,html,php,aspvbs inoremap <buffer> <M-ß> &szlig;
-  "autocmd FileType xml,xsd,xslt,xhtml,html,php,aspvbs inoremap <buffer> <M-ö> &ouml;
-  "autocmd FileType xml,xsd,xslt,xhtml,html,php,aspvbs inoremap <buffer> <M-ä> &auml;
-  "autocmd FileType xml,xsd,xslt,xhtml,html,php,aspvbs inoremap <buffer> <M-ü> &uuml;
-  "autocmd FileType xml,xsd,xslt,xhtml,html,php,aspvbs inoremap <buffer> <M-S-Ö> &Ouml;
-  "autocmd FileType xml,xsd,xslt,xhtml,html,php,aspvbs inoremap <buffer> <M-S-Ä> &Auml;
-  "autocmd FileType xml,xsd,xslt,xhtml,html,php,aspvbs inoremap <buffer> <M-S-Ü> &Uuml;
-
   autocmd FileType c,cpp inoreab <buffer> main int main(int argc, char *argv[])<CR>{<CR>}<C-O>O
   autocmd FileType c,cs,cpp,java,javascript inoreab <buffer> fori for (int i=0; i; i++) {<CR>}<UP><END><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
   autocmd FileType c,cs,cpp,java,javascript inoreab <buffer> forj for (int j=0; j; j++) {<CR>}<UP><END><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
   autocmd FileType python inoreab <buffer> fori for i in range():<LEFT><LEFT>
   autocmd FileType python inoreab <buffer> forj for j in range():<LEFT><LEFT>
-
-  "autocmd FileType php inoreab <buffer> fori for ($i=0; $i; $i++) {<CR>}<UP><END><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
-  "autocmd FileType php inoreab <buffer> forj for ($j=0; $j; $j++) {<CR>}<UP><END><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
-  "autocmd FileType php iab <buffer> fori for ($i=0;$i;$i++<RIGHT> {<CR><UP><END><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
-  "autocmd FileType php iab <buffer> forj for ($j=0;$j;$j++<RIGHT> {<CR><UP><END><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
 
   autocmd FileType c,cs,cpp,java,javascript,php,vala inoremap <buffer> { {<CR>}<C-O>O
   autocmd FileType python,tex,bib,antlr,jsp,ant inoremap <buffer> { {}<LEFT>
@@ -141,13 +115,6 @@ if has("autocmd")
 
   autocmd FileType jsp setlocal ai
 
-  "autocmd FileType scheme source /home/jh/.vim/jhscheme.vim
-
-  "autocmd FileType c setlocal path+=c:/programme/mingw/include
-  "autocmd FileType php setlocal path+=.,c:/programme/php/PEAR
-  "autocmd FileType php setlocal dictionary+=.,c:/programme/vim/vim70/phpfunctions.txt
-  "autocmd FileType php setlocal tags+=c:/programme/php/PEAR/tags
-
   autocmd FileType php source /home/jh/.vim/php2.vim
   autocmd FileType java source /home/jh/.vim/java.vim
   autocmd FileType xslt source /home/jh/.vim/xslt.vim
@@ -155,8 +122,6 @@ if has("autocmd")
   autocmd FileType pom source /home/jh/.vim/pom.vim
 
   " move to directory of current file
-  "autocmd BufEnter * exe "lcd " . escape(expand("<afile>:p:h"),"\" ")
-  "autocmd BufRead * echo 'lcd ' . escape(expand("%:p:h"),"\" ")
   if (has("netbeans_intg") || has("sun_workshop"))
       set autochdir
   endif
@@ -170,7 +135,6 @@ else
   set autoindent		" always set autoindenting on
 endif " has("autocmd")
 
-"set runtimepath+=c:\programme\vim7\php
 set complete=.,w,i,t,b
 set completeopt=
 set shellpipe=>\ %s\ 2>&1
@@ -181,15 +145,6 @@ set lispwords+=module,syntax-rules,letrec*
 
 let python_highlight_numbers = 1
 let java_allow_cpp_keywords=1
-"let java_highlight_functions="style"
-"unlet java_highlight_java_lang
-"unlet java_highlight_java_lang_ids
-"unlet java_highlight_java_lang
-
-" FeralToggleCommentify
-let g:FTCOperateOnFirstColumnOnly=0
-let g:FTCOperateOnlyOnNonComments=1
-let g:FTCOperateOnBlankLines=0
 
 "file-explorer
 let g:explVertical=1      " Split vertically
@@ -203,13 +158,6 @@ let g:loaded_netrw=1
 let g:loaded_netrwPlugin=1
 
 let g:ctags_command="ctags -R"
-"set showfulltag
-
-"let CVSCommandEnableBufferSetup=1
-let CVSCommandDiffOpt="uwbB3"
-let CVSCommandDeleteOnHide=1
-let CVSCommandCommitOnWrite=1
-let CVSCommandEdit="split"
 
 set grepprg=grep\ -H\ -n
 set cinoptions=l1,t0,(0,u1,W4,j1
@@ -221,14 +169,10 @@ set noruler
 " Show buffer number, filetype, fileformat and fileencoding in statusline
 set statusline=[%n]\ [%f]\ %w%y%r%m[%{&fileformat}][%{&fileencoding}]\ %=\ %l/%L,%-5c\ %P\ 
 
-"set statusline=[%n]\ [%f]\ %y%r%m[%{&fileformat}][%{&fileencoding}]\ %=\ (%L)\ %l,%-5c\ %P\ 
-"set rulerformat=%-25([%n]\ \ %l/%L,%-5c\ %P%)
-
 " Switch between buffers as in other windows apps
 set confirm
 nmap <C-Tab> :tabnext<CR>
 nmap <C-S-Tab> :tabprev<CR>
-" map <C-F4> :call JHBufferClose()<cr>
 nmap <C-F4> :confirm bd<CR>
 
 nmap <leader>n :bnext!<cr>
@@ -271,15 +215,12 @@ vnoremap - d"+P
 nnoremap R "_d
 
 imap <C-U> <ESC>gUiwgi
-"imap <C-L> <ESC>guiwgi
 nmap <C-U> gUiw
-"nmap <C-L> guiw
 
 nnoremap <C-T> >>
 nnoremap <C-D> <<
 vnoremap <C-T> >
 vnoremap <C-D> <
-"nmap <C-J> %
 
 inoremap <C-L> <DEL>
 inoremap <M-h> <LEFT>
@@ -289,9 +230,6 @@ inoremap <M-k> <UP>
 
 nnoremap \xml :%!xmlstarlet fo -s 4<cr>
 nnoremap \html :%!xmlstarlet fo -H -s 4<cr>
-
-"nnoremap <Tab><Tab> :buffer! <C-Z>
-"nnoremap <leader><S-Tab> :buffer! <C-Z><C-P><C-P>
 
 cnoreabbrev hlep help
 cnoreabbrev hlpe help
@@ -322,31 +260,8 @@ nnoremap <F10> :crewind<CR>
 nnoremap <F11> :cp<CR>
 nnoremap <F12> :cn<CR>
 
-"nnoremap <C-A> 2zh
-"nnoremap <C-S> 2zl
-
 nnoremap zh 24zh
 nnoremap zl 24zl
-
-function! TopCoderRunTest()
-    let clazz = expand("%:t:r")
-    let path  = expand("%:p:h")
-    let cmd   = 'read !java -ea -cp ' . path . ' ' . clazz
-
-    Sscratch
-    normal ggdG
-    silent execute cmd
-    normal gg
-    redraw
-
-    if search('^Failed', 'wn') > 0
-        echo 'Test Failed'
-    elseif search('^Passed', 'wn') > 0
-        echo 'Test Passed'
-    endif
-endfunction
-
-nnoremap <C-F9> :call TopCoderRunTest()<CR>
 
 function! JHJump()
     if search('\(«--\)\@<=.\{-,200}--»','W') > 0
