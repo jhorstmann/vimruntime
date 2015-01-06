@@ -93,7 +93,7 @@ if has("autocmd")
   " complete inline tag
   autocmd FileType xml,xsd,xslt,xhtml,html,php,jsp,ant inoremap <buffer> <M-,> ><ESC>T<yiwf>a</<C-R>"><ESC>F<i
 
-  autocmd FileType xml,xsd,xslt,xhtml,html,php,jsp,ant source /home/jh/.vim/closetag.vim
+  autocmd FileType xml,xsd,xslt,xhtml,html,php,jsp,ant source /home/jhorstmann/.vim/closetag.vim
 
   " autocmd FileType xml,xsd,xslt,xhtml,html,php inoremap <buffer> <M-.> <<ESC>T<yiwf<a/<CR><C-R>"><C-O>O
   " autocmd FileType xml,xsd,xslt,xhtml,html,php inoremap <buffer> <M-,> <<ESC>T<yiwf<a/<C-R>"><ESC>F<i
@@ -148,11 +148,11 @@ if has("autocmd")
   "autocmd FileType php setlocal dictionary+=.,c:/programme/vim/vim70/phpfunctions.txt
   "autocmd FileType php setlocal tags+=c:/programme/php/PEAR/tags
 
-  autocmd FileType php source /home/jh/.vim/php2.vim
-  autocmd FileType java source /home/jh/.vim/java.vim
-  autocmd FileType xslt source /home/jh/.vim/xslt.vim
-  autocmd FileType jsp source /home/jh/.vim/jstl.vim
-  autocmd FileType pom source /home/jh/.vim/pom.vim
+  autocmd FileType php source ~/.vim/php2.vim
+  autocmd FileType java source ~/.vim/java.vim
+  autocmd FileType xslt source ~/.vim/xslt.vim
+  autocmd FileType jsp source ~/.vim/jstl.vim
+  "autocmd FileType pom source ~/.vim/pom.vim
 
   " move to directory of current file
   "autocmd BufEnter * exe "lcd " . escape(expand("<afile>:p:h"),"\" ")
