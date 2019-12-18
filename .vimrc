@@ -16,8 +16,9 @@ let jh_hi_use_bold=1
 " No toolbars and menus, console dialogs
 set guioptions-=t
 set guioptions-=T
-set guioptions-=m
+"set guioptions-=m
 set guioptions+=M
+set guioptions+=e
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -83,7 +84,6 @@ if has("autocmd")
   " complete inline tag
   autocmd FileType xml,xsd,xslt,xhtml,html,php,jsp,ant inoremap <buffer> <M-,> ><ESC>T<yiwf>a</<C-R>"><ESC>F<i
 
-  autocmd FileType xml,xsd,xslt,xhtml,html,php,jsp,ant source /home/jh/.vim/closetag.vim
 
   " mappings for html entities 
   autocmd FileType xml,xsd,xslt,xhtml,html,php,aspvbs,jsp,ant inoremap <buffer> <M-Space> &nbsp;
@@ -115,11 +115,9 @@ if has("autocmd")
 
   autocmd FileType jsp setlocal ai
 
-  autocmd FileType php source /home/jh/.vim/php2.vim
-  autocmd FileType java source /home/jh/.vim/java.vim
-  autocmd FileType xslt source /home/jh/.vim/xslt.vim
-  autocmd FileType jsp source /home/jh/.vim/jstl.vim
-  autocmd FileType pom source /home/jh/.vim/pom.vim
+  autocmd FileType java source /home/jhorstmann/.vim/java.vim
+  autocmd FileType xslt source /home/jhorstmann/.vim/xslt.vim
+  autocmd FileType jsp source /home/jhorstmann/.vim/jstl.vim
 
   " move to directory of current file
   if (has("netbeans_intg") || has("sun_workshop"))
@@ -128,7 +126,6 @@ if has("autocmd")
 
   nmap <leader>e :silent !nautilus %:p:h<CR>
   nmap <leader>sh :silent !gnome-terminal %:p:h<CR>
-  nmap <leader>se :Se<CR>
 
   augroup END
 else
@@ -145,17 +142,6 @@ set lispwords+=module,syntax-rules,letrec*
 
 let python_highlight_numbers = 1
 let java_allow_cpp_keywords=1
-
-"file-explorer
-let g:explVertical=1      " Split vertically
-let g:explStartRight=0    " Put new explorer window to the left of the current window
-let g:explSplitRight=1    " Put new window to the right of the explorer
-let g:explWinSize=30
-
-let g:netrw_Winsize=30
-let g:netrw_altv=1
-let g:loaded_netrw=1
-let g:loaded_netrwPlugin=1
 
 let g:ctags_command="ctags -R"
 

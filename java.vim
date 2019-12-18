@@ -28,17 +28,6 @@ inoreab <buffer> psfi public static final int ;<LEFT>
 inoreab <buffer> psfb public static final boolean ;<LEFT>
 inoreab <buffer> psfs public static final String ;<LEFT>
 
-"inoreab <buffer> cdoc /**<CR><CR>@author Jörn Horstmann, (c) 2005<CR>@version $Revision$<CR><pre><CR>$Log$<CR></pre><CR><BS>/<UP><UP><UP><UP><UP><UP><SPACE>
-"inoreab <buffer> jdoc /**<CR><CR>@param<CR>@return<CR>@throws<CR><BS>/<UP><UP><UP><UP><SPACE>
-"inoreab <buffer> /** /**<CR><BS>/<UP><SPACE>
-
-"inoreab <buffer> while while () {<CR>}<UP><END><LEFT><LEFT><LEFT>
-"inoreab <buffer> dow do {<CR>}<CR>while ();<LEFT><LEFT>
-"inoreab <buffer> switch switch () {<CR>case :<CR>break;<CR>default:<CR>break;<CR>}<UP><UP><UP><UP><UP><END><LEFT><LEFT><LEFT>
-
-"inoreab <buffer> iff if () {<CR>}<CR><UP><UP><END><LEFT><LEFT><LEFT>
-"inoreab <buffer> ife if () {<CR>}<CR>else {<CR>}<UP><UP><UP><END><LEFT><LEFT><LEFT>
-
 inoreab <buffer> formap for (Iterator it=.entrySet().iterator(); it.hasNext(); ) {<CR>Map.Entry me = (Map.Entry)it.next();<CR>«--keytype--» key = («--keytype--»)me.getKey();<CR>«--valtype--» val = («--valtype--»)me.getValue();<CR>«--body--»<CR>}<UP><UP><UP><UP><UP><END><C-O>40<LEFT>
 inoreab <buffer> forkey for (Iterator it=.keySet().iterator(); it.hasNext(); ) {<CR>«--type--» «--name--» = («--type--»)it.next();<CR>«--body--»<CR>}<UP><UP><UP><END><C-O>38<LEFT>
 inoreab <buffer> forval for (Iterator it=.values().iterator(); it.hasNext(); ) {<CR>«--type--» «--name--» = («--type--»)it.next();<CR>«--body--»<CR>}<UP><UP><UP><END><C-O>38<LEFT>
@@ -68,63 +57,6 @@ inoreab <buffer> strtok StringTokenizer tokenizer = new StringTokenizer();<CR>wh
 inoreab <buffer> matchall Pattern p = Pattern.compile();<CR>Matcher m = p.matcher(«--text--»);<CR>while (m.find()) {<CR>String reg1 = m.group(1);<CR>«--body--»<CR>}<UP><UP><UP><UP><UP><END><LEFT><LEFT>
 inoreab <buffer> matches  Pattern p = Pattern.compile();<CR>Matcher m = p.matcher(«--text--»);<CR>if (m.matches()) {<CR>String reg1 = m.group(1);<CR>«--body--»<CR>}<UP><UP><UP><UP><UP><END><LEFT><LEFT>
 inoreab <buffer> matchrep Pattern p = Pattern.compile();<CR>Matcher m = p.matcher(«--text--»);<CR>StringBuffer sb = new StringBuffer();<CR>while (m.find()) {<CR>String reg1 = m.group(1);<CR>m.appendReplacement(sb, Matcher.quoteReplacement(«--replacement--»));<CR>}<CR>m.appendTail(sb);<CR><UP><UP><UP><UP><UP><UP><UP><UP><END><LEFT><LEFT>
-
-function! JH_java_getter()
-    let type = input("Variable type: ", "")
-    if type != ""
-        let var  = input("Variable name: ", "")
-        if var != ""
-            let var2 = substitute(var, "^.", "\\u\\0", "")
-            let l   = line(".")-1
-            let res = append(l  , "")
-            let res = append(l+1, "    public " . type . " get" . var2 . "() {")
-            let res = append(l+2, "        return " . var . ";")
-            let res = append(l+3, "    }")
-        endif
-    endif
-endfunction
-
-function! JH_java_setter()
-    let type = input("Variable type: ", "")
-    if type != ""
-        let var  = input("Variable name: ", "")
-        if var != ""
-            let var2 = substitute(var, "^.", "\\u\\0", "")
-            let l   = line(".")-1
-            let res = append(l  , "")
-            let res = append(l+1, "    public void set" . var2 . "(" . type . " " . var . ") {")
-            let res = append(l+2, "       this." . var . " = " . var . ";")
-            let res = append(l+3, "    }")
-        endif
-    endif
-endfunction
-
-function! JH_java_getset()
-    let type = input("Variable type: ", "")
-    if type != ""
-        let var  = input("Variable name: ", "")
-        if var != ""
-            let var2 = substitute(var, "^.", "\\u\\0", "")
-            let l   = line(".")-1
-            let res = append(l  , "")
-            let res = append(l+1, "    public " . type . " get" . var2 . "() {")
-            let res = append(l+2, "        return " . var . ";")
-            let res = append(l+3, "    }")
-            let res = append(l+4, "")
-            let res = append(l+5, "    public void set" . var2 . "(" . type . " " . var . ") {")
-            let res = append(l+6, "       this." . var . " = " . var . ";")
-            let res = append(l+7, "    }")
-        endif
-    endif
-endfunction
-
-inoremap <buffer> <F2> <C-O>:call JH_java_getter()<CR>
-inoremap <buffer> <F3> <C-O>:call JH_java_setter()<CR>
-inoremap <buffer> <F4> <C-O>:call JH_java_getset()<CR>
-
-noremap <buffer> <F2> :call JH_java_getter()<CR>
-noremap <buffer> <F3> :call JH_java_setter()<CR>
-noremap <buffer> <F4> :call JH_java_getset()<CR>
 
 inoreab <buffer> slen int len = .length();<CR><UP><END><C-O>9<LEFT>
 inoreab <buffer> alen int len = .length;<CR><UP><END><C-O>7<LEFT>
